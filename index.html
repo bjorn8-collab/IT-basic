@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Over mij</a></li>
+                <li><a href="#projects">Projecten</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Hallo,  <span class="highlight">mijn naam is Björn van de Laar</span></h1>
+            <p>Webontwikkelaar | Designer | Creatieveling</p>
+            <a href="#projects" class="btn">Bekijk mijn werk</a>
+        </section>
+
+        <section id="about" class="about">
+            <h2>Over mij</h2>
+            <div class="about-content">
+                <div class="about-text">
+    
+                    <p>Mijn naam is Björn ik ben 18 jaar oud en ik zit op het MBO in utrecht. Ik ben bezig met de opleiding software developer in het eerste jaar. Ik heb nog geen ervaring in dit vak maar hoop dit verder te ontwikkelen in de loop van mijn opleiding.</p>
+                </div>
+                <div class="skills">
+                    <h3>Vaardigheden</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Mijn Projecten</h2>
+            <div class="project-grid">
+                <article class="project-card" data-title="Project 1" data-role="Front-end" data-stack="HTML, CSS, JavaScript">
+                    <div class="project-image"></div>
+                    <h3>Project 1</h3>
+                    <p class="project-description">Beschrijving van het project.</p>
+                    <button type="button" class="btn-small project-toggle" data-label="Meer info" aria-expanded="false" aria-controls="project-panel">Meer info</button>
+                </article>
+                <article class="project-card" data-title="Project 2" data-role="Front-end" data-stack="HTML, CSS">
+                    <div class="project-image"></div>
+                    <h3>Project 2</h3>
+                    <p class="project-description">Beschrijving van het project.</p>
+                    <button type="button" class="btn-small project-toggle" data-label="Meer info" aria-expanded="false" aria-controls="project-panel">Meer info</button>
+                </article>
+                <article class="project-card" data-title="Project 3" data-role="Back-end" data-stack="JavaScript, Node.js">
+                    <div class="project-image"></div>
+                    <h3>Project 3</h3>
+                    <p class="project-description">Beschrijving van het project.</p>
+                    <button type="button" class="btn-small project-toggle" data-label="Meer info" aria-expanded="false" aria-controls="project-panel">Meer info</button>
+                </article>
+            </div>
+
+            <div class="project-panel" id="project-panel" hidden>
+                <h3 class="project-panel-title"></h3>
+                <p class="project-panel-text"></p>
+                <dl class="project-panel-meta">
+                    <div>
+                        <dt>Mijn rol</dt>
+                        <dd class="project-panel-role"></dd>
+                    </div>
+                    <div>
+                        <dt>Technieken</dt>
+                        <dd class="project-panel-stack"></dd>
+                    </div>
+                </dl>
+                <a href="#" class="btn-small">Bekijk project</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Jouw naam" required>
+                <input type="email" name="email" placeholder="Jouw e-mail" required>
+                <textarea name="message" placeholder="Jouw bericht" required></textarea>
+                <button type="submit" class="btn">Verstuur</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mijn Portfolio. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
