@@ -18,6 +18,13 @@
             </ul>
             <button class="menu-toggle" aria-label="Menu">&#9776;</button>
         </nav>
+
+        <div class="project-filters">
+            <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">Alles</button>
+            <button type="button" class="filter-chip" data-filter="websites" aria-pressed="false">Websites</button>
+            <button type="button" class="filter-chip" data-filter="tools" aria-pressed="false">Tools</button>
+            <button type="button" class="filter-chip" data-filter="school" aria-pressed="false">Schoolopdrachten</button>
+        </div>
     </header>
 
     <main>
@@ -45,44 +52,41 @@
             </div>
         </section>
 
-        <section id="projects" class="projects">
+<section id="projects" class="projects">
             <h2>Mijn Projecten</h2>
             <div class="project-grid">
-                <article class="project-card" data-title="Project 1" data-role="Front-end" data-stack="HTML, CSS, JavaScript">
-                    <div class="project-image"></div>
+                <article class="project-card" data-category="websites">
                     <h3>Project 1</h3>
-                    <p class="project-description">Beschrijving van het project.</p>
-                    <button type="button" class="btn-small project-toggle" data-label="Meer info" aria-expanded="false" aria-controls="project-panel">Meer info</button>
+                    <p class="project-summary">Beschrijving van het project.</p>
+                    <ul class="chip-list">
+                        <li class="chip">HTML</li>
+                        <li class="chip">CSS</li>
+                        <li class="chip">JavaScript</li>
+                    </ul>
+                    <a href="project.html?id=1" class="btn-small">Bekijk project</a>
                 </article>
-                <article class="project-card" data-title="Project 2" data-role="Front-end" data-stack="HTML, CSS">
-                    <div class="project-image"></div>
+                <article class="project-card" data-category="tools">
                     <h3>Project 2</h3>
-                    <p class="project-description">Beschrijving van het project.</p>
-                    <button type="button" class="btn-small project-toggle" data-label="Meer info" aria-expanded="false" aria-controls="project-panel">Meer info</button>
+                    <p class="project-summary">Beschrijving van het project.</p>
+                    <ul class="chip-list">
+                        <li class="chip">HTML</li>
+                        <li class="chip">CSS</li>
+                    </ul>
+                    <a href="project.html?id=2" class="btn-small">Bekijk project</a>
                 </article>
-                <article class="project-card" data-title="Project 3" data-role="Back-end" data-stack="JavaScript, Node.js">
-                    <div class="project-image"></div>
+                <article class="project-card" data-category="school">
                     <h3>Project 3</h3>
-                    <p class="project-description">Beschrijving van het project.</p>
-                    <button type="button" class="btn-small project-toggle" data-label="Meer info" aria-expanded="false" aria-controls="project-panel">Meer info</button>
+                    <p class="project-summary">Beschrijving van het project.</p>
+                    <ul class="chip-list">
+                        <li class="chip">HTML</li>
+                        <li class="chip">CSS</li>
+                        <li class="chip">JavaScript</li>
+                    </ul>
+                    <a href="project.html?id=3" class="btn-small">Bekijk project</a>
                 </article>
             </div>
 
-            <div class="project-panel" id="project-panel" hidden>
-                <h3 class="project-panel-title"></h3>
-                <p class="project-panel-text"></p>
-                <dl class="project-panel-meta">
-                    <div>
-                        <dt>Mijn rol</dt>
-                        <dd class="project-panel-role"></dd>
-                    </div>
-                    <div>
-                        <dt>Technieken</dt>
-                        <dd class="project-panel-stack"></dd>
-                    </div>
-                </dl>
-                <a href="#" class="btn-small">Bekijk project</a>
-            </div>
+            <p class="project-empty" hidden>Geen projecten gevonden in deze categorie.</p>
         </section>
 
         <section id="contact" class="contact">

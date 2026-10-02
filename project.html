@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Mijn Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">Over mij</a></li>
+                <li><a href="index.html#projects" class="active">Projecten</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main>
+        <article class="project-detail" id="project-detail" hidden>
+            <p class="detail-meta">
+                <span class="chip"></span>
+                <span class="detail-year"></span>
+            </p>
+
+            <h1 class="detail-title"></h1>
+            <p class="detail-summary"></p>
+
+            <div class="detail-body"></div>
+
+            <dl class="detail-facts">
+                <div>
+                    <dt>Mijn rol</dt>
+                    <dd class="detail-role"></dd>
+                </div>
+                <div>
+                    <dt>Technieken</dt>
+                    <dd>
+                        <ul class="chip-list detail-stack"></ul>
+                    </dd>
+                </div>
+            </dl>
+
+            <div class="detail-links">
+                <a href="#" class="btn" data-link="live" hidden>Bekijk de live versie</a>
+                <a href="#" class="btn-small" data-link="repo" hidden>Bekijk de code</a>
+            </div>
+        </article>
+
+        <p class="detail-not-found" id="detail-not-found" hidden>
+            Dit project kon niet worden gevonden.
+            <a href="index.html#projects">Terug naar alle projecten</a>
+        </p>
+
+        <nav class="detail-pager" aria-label="Navigatie tussen projecten">
+            <a href="#" class="pager-link" id="pager-prev" hidden>
+                <span>Vorige</span>
+                <strong></strong>
+            </a>
+            <a href="#" class="pager-link pager-next" id="pager-next" hidden>
+                <span>Volgende</span>
+                <strong></strong>
+            </a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mijn Portfolio. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script src="js/projects.js"></script>
+    <script src="js/project.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

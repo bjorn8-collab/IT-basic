@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 :root {
     --primary: #2563eb;
     --primary-dark: #1d4ed8;
@@ -16,6 +20,23 @@
 
 html {
     scroll-behavior: smooth;
+
+     .project-toggle {
+    background-color: #4af6ff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    padding: 15px 60px;
+    font-size: 15px;
+    cursor:pointer;
+    transition: 0.3s;
+    
+}
+
+.project-toggle:hover {
+    background-color: cornflowerblue;
+    transform: scale(1.05);
+}
 }
 
 body {
@@ -30,16 +51,24 @@ a {
     text-decoration: none;
 }
 
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 /* Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-light);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background-color: var(--bg-light);
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 .logo {
@@ -63,6 +92,11 @@ nav {
     color: var(--text);
 }
 
+.nav-links a.active {
+    color: var(--text);
+    font-weight: bold;
+}
+
 .menu-toggle {
     display: none;
     background: none;
@@ -70,6 +104,39 @@ nav {
     color: var(--text);
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* Project Filters */
+.project-filters {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 5% 1rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.filter-chip {
+    flex: 0 0 auto;
+    padding: 0.4rem 1rem;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--bg-light);
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.filter-chip:hover {
+    color: var(--text);
+    border-color: var(--primary);
+}
+
+.filter-chip.is-active {
+    background-color: var(--primary);
+    color: var(--text);
+    border-color: var(--primary);
 }
 
 /* Hero Section */
@@ -159,20 +226,62 @@ section h2 {
 
 .project-card {
     background-color: var(--bg-light);
+    border: 1px solid rgba(37, 99, 235, 0.2);
     border-radius: var(--radius);
     padding: 1.5rem;
-    transition: transform 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.project-card:hover,
+.project-card:focus-within {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
-.project-image {
-    height: 180px;
-    background-color: var(--primary);
-    border-radius: var(--radius);
+.project-card.is-active {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary), 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.project-card[hidden] {
+    display: none;
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-summary {
+    color: var(--text-muted);
     margin-bottom: 1rem;
+}
+
+/* Chips */
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.chip {
+    padding: 0.2rem 0.7rem;
+    background-color: var(--bg);
+    color: var(--text-muted);
+    border: 1px solid var(--primary);
+    border-radius: 999px;
+    font-size: 0.8rem;
+}
+
+.project-empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 0;
 }
 
 .btn-small {
@@ -180,9 +289,130 @@ section h2 {
     padding: 0.5rem 1rem;
     background-color: var(--primary);
     color: var(--text);
+    border: none;
     border-radius: var(--radius);
+    font-family: inherit;
     font-size: 0.9rem;
+    cursor: pointer;
     margin-top: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.btn-small:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Project Detail */
+.project-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 5% 2rem;
+}
+
+.detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.detail-year {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.detail-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.detail-summary {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.detail-body p {
+    margin-bottom: 1rem;
+}
+
+.detail-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--bg-light);
+    border-bottom: 1px solid var(--bg-light);
+}
+
+.detail-facts dt {
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.detail-facts dd {
+    color: var(--text-muted);
+}
+
+.detail-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.detail-links .btn,
+.detail-links .btn-small {
+    margin-top: 0;
+}
+
+.detail-not-found {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 5%;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* Project Pager */
+.detail-pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 5% 5rem;
+}
+
+.pager-link {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--bg-light);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: var(--radius);
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.pager-link:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.pager-link span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.pager-link strong {
+    color: var(--text);
+}
+
+.pager-next {
+    margin-left: auto;
+    text-align: right;
 }
 
 /* Contact */
@@ -242,7 +472,17 @@ footer {
         font-size: 2rem;
     }
 
+    .detail-title {
+        font-size: 1.75rem;
+    }
+
+    .detail-pager {
+        flex-direction: column;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
     }
+
+   
 }
